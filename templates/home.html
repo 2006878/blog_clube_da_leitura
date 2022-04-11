@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block sub_header %}
+
+    <main class="container">
+  <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 fst-italic">Literatura Infantil</h1>
+      <p class="lead my-3">A importância da leitura no desenvolvimento da criança!</p>
+      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue lendo...</a></p>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">A importância da Leitura</strong>
+          <h3 class="mb-0">Literatura Infantil</h3>
+          <div class="mb-1 text-muted">Autor</div>
+          <p class="card-text mb-auto">A importância da leitura no desenvolvimento da criança!</p>
+          <a href="#" class="stretched-link">Continue lendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" src="/media/leitores.jpg" width="200" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">A importância da Leitura</strong>
+          <h3 class="mb-0">Literatura Infantil</h3>
+          <div class="mb-1 text-muted">Autor</div>
+          <p class="card-text mb-auto">A importância da leitura no desenvolvimento da criança!</p>
+          <a href="#" class="stretched-link">Continue lendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+<img class="bd-placeholder-img" src="/media/maefilha.jpeg" width="300" height="250" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block content %}
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Publicações recentes
+      </h3>
+      {% for post in posts %}
+      <article class="blog-post">
+        <h2 class="blog-post-title">
+            <a href="/posts/{{ post.pk }}">{{ post.title }}</a>
+        </h2>
+        <p class="blog-post-meta">{{ post.created_at|date:'d, M Y' }} por <a href="#">{{ post.author.get_full_name }}</a></p>
+        {{ post.summary|safe }}
+      </article>
+      {% endfor %}
+
+{#      <nav class="blog-pagination" aria-label="Pagination">#}
+{#        <a class="btn btn-outline-primary" href="#">Older</a>#}
+{#        <a class="btn btn-outline-secondary disabled">Newer</a>#}
+{#      </nav>#}
+{% endblock %}
