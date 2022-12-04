@@ -5,7 +5,7 @@ from django.shortcuts import render
 from blog.models import Post
 
 
-def home(request):
+def index(request):
     posts = Post.objects.all()
     return render(request, 'index.html', {'posts': posts})
 
